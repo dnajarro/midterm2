@@ -1,0 +1,31 @@
+<html>
+<head>
+  <title>Store</title>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+  <script src="javascripts/product.js"></script>
+
+</head>
+<body ng-app="amazon" ng-controller="MainCtrl">
+<div class="row">
+<div class="col-md-6 col-md-offset-3">
+  <h1><b>Store Management Interface</b></h1>
+
+  <form ng-submit="addProduct()" style = "margin-top30px;">
+    Product Name <input type="text" ng-model="prodName"></input><br>
+    Price <input type="text" ng-model="price"></input><br>
+    Picture URL <input type="text" ng-model="pictureURL"></input><br>
+    <button type="submit">Add Product</button>
+  </form>
+  <div>
+    {{test}}
+  </div>
+  <h1><b>Current Products</b></h1>
+  <div ng-repeat="prod in products | orderBy: 'name'">
+    <span class="glyphicon glyphicon-remove" ng-click="delete(prod)"></span>
+    {{prod.name}} - price {{ prod.price }} - ordered {{prod.quantity}}
+  </div>
+</div>
+</div>
+</body>
+</html>
